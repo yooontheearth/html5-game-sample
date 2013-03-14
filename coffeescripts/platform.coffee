@@ -18,7 +18,7 @@ class GamePlatform
 			frames:
 				width:100   # １フレームの幅を指定
 				height:100  # １フレームの高さを指定
-				regX:50     # 拡大縮小、回転、移動の中心点を指定
+				regX:50     # 中心点（拡大縮小、回転、移動用の）を指定
 				regY:50     #
 			animations:
 				move:
@@ -27,7 +27,7 @@ class GamePlatform
 		# スプライトアニメーションの設定
 		shipAnimation = new createjs.BitmapAnimation shipSpriteSheet
 		shipAnimation.x = shipAnimation.y = 100
-		# スプライトシートから指定のフレームから画像を抜き取ってBitmapオブジェクトを作成する
+		# スプライトシートから指定のフレームの画像を抜き取ってBitmapオブジェクトを作成する
 		ship = new createjs.Bitmap createjs.SpriteSheetUtils.extractFrame shipSpriteSheet, 0
 		ship.regX = ship.regY = 50 # 中心点をスプライトアニメーションに合わせる
 		ship.x = ship.y = 100
