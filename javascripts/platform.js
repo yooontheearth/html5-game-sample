@@ -104,6 +104,9 @@
         });
       };
       this.stage.addChild(sq);
+      this.fps = new createjs.Text("0 fps", "bold 14px Arial", "#000");
+      this.fps.x = this.fps.y = 10;
+      this.stage.addChild(this.fps);
     }
 
     GamePlatform.prototype.startGame = function() {
@@ -113,6 +116,7 @@
     };
 
     GamePlatform.prototype.tick = function() {
+      this.fps.text = (Math.round(createjs.Ticker.getMeasuredFPS())) + " fps";
       return this.stage.update();
     };
 

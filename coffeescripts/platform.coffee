@@ -92,6 +92,9 @@ class GamePlatform
 #		container.addChild player2
 #		@stage.addChild container
 
+		@fps = new createjs.Text "0 fps", "bold 14px Arial", "#000"
+		@fps.x = @fps.y = 10
+		@stage.addChild @fps
 	startGame: ->
 		createjs.Ticker.userRAF = true
 		createjs.Ticker.setFPS 60
@@ -100,6 +103,7 @@ class GamePlatform
 		#
 		# キー入力にあわせたキャラクタの動作やあたり判定などをここで行う
 		#
+		@fps.text = (Math.round createjs.Ticker.getMeasuredFPS())+" fps"
 		@stage.update()
 window.GamePlatform = GamePlatform
 
